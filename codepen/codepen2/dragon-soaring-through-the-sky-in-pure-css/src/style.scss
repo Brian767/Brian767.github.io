@@ -1,0 +1,349 @@
+$bg: #97d4f0;
+$bg-alpha: rgba($bg, .33);
+$cloud: #d9e4ea;
+
+$light: #d7d75c;
+$main: #a1c052;
+$dark: #4d5227;
+$dark-alpha: rgba($dark, .25);
+
+$lit: #f0d56f;
+$secondary: #9678ae;
+$shaded: #674290;
+
+$unit: 80vmin;
+$head-height: .125em;
+$border: .005em;
+$cloud-width: 5vmin;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-style: solid;
+  border-width: 0;
+}
+
+html,
+body {
+  height: 100%;
+  font-size: 16px;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  background: $bg;
+  overflow: hidden;
+}
+
+.dragon {
+  position: relative;
+  font-size: $unit;
+  width: 1em;
+  height: .6em;
+  animation: dragon 4s ease-in-out alternate infinite both;
+  
+  div {
+    position: absolute;
+  }
+}
+
+.body {
+  top: -.15em;
+  left: #{$head-height * 1.5};
+  width: .625em;
+  height: .625em;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 25% 67%, #{$dark-alpha} .01em, transparent .01em),
+    radial-gradient(circle at 20% 55%, #{$dark-alpha} .015em, transparent .015em),
+    radial-gradient(circle at 15% 62%, #{$dark-alpha} .02em, transparent .02em),
+    radial-gradient(circle at 95% 67%, #{$bg-alpha} 5%, transparent 5%), /* Kind of cheating… */
+    radial-gradient(circle at 12.5% 95%, #{$light} 15%, transparent 15%),
+    radial-gradient(circle at 66.7% 25%, transparent 50%, #{$main} 50%);
+  box-shadow: inset #{$border} #{$border * -1} 0 #{$dark-alpha};
+  clip-path: polygon(
+    0% .225em, 100% .225em,
+    100% 100%, 0% 100%
+  );
+}
+
+.head {
+  width: #{$head-height * 2.5};
+  height: $head-height;
+  border-radius: #{$head-height * .5} #{$head-height * .25} #{$head-height * .5} #{$head-height * .5} ;
+  background: linear-gradient(0deg, #{$main}, #{$main});
+  box-shadow: inset #{$border * -1} #{$border * -1} 0 #{$dark-alpha};
+  overflow: hidden;
+  transform-origin: calc(100% - #{$head-height * .5}) #{$head-height * .5};
+  
+  &::after { // Nose
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: #{$border * 2};
+    width: #{$border * 2};
+    height: #{$border * 2};
+    border-radius: 50%;
+    background-color: $dark;
+    box-shadow: #{$border * 3} 0 0 #{$dark};
+  }
+}
+
+.mouth {
+  left: 0;
+  top: 50%;
+  width: 50%;
+  height: #{$head-height * .25};
+  border-width: $border;
+  border-style: solid;
+  border-color: transparent #{$dark} #{$dark} transparent;
+  border-radius: 0 #{$head-height * .25} #{$head-height * .25} 0;
+}
+
+.eye {
+  left: calc(50% + #{$head-height * .25});
+  top: 25%;
+  width: #{$head-height * .25};
+  height: #{$head-height * .25};
+  border-width: #{$border} #{$border} 0;
+  border-style: solid;
+  border-color: #{$dark} #{$dark} transparent #{$dark};
+  border-radius: #{$head-height * .25} #{$head-height * .25} 0 0;
+}
+
+.horn {
+  &::before { // Horn
+    content: '';
+    position: absolute;
+    left: #{$head-height * .4};
+    bottom: #{$head-height * -.0625};
+    width: 0;
+    height: 0;
+    border-width: 0 #{$head-height * .125}  #{$head-height * .25} #{$head-height * .125};
+    border-color: transparent transparent #{$lit} transparent;
+    border-radius: 50%;
+  }
+}
+
+.paws {
+  left: #{$head-height * .75};
+  top: #{$head-height * 1.5};
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: $head-height;
+    height: #{$head-height * .5};
+    border-radius: #{$head-height * .5} 0 0 0;
+    border-color: #{$light} transparent transparent #{$light};
+    border-width: #{$head-height * .25} 0 0 #{$head-height * .25};
+    transform-origin: right #{$head-height * .125};
+    animation: paw 1s ease-in-out alternate infinite both;
+  }
+  
+  &::before {
+    left: 0.01em;
+    top: 0.01em;
+    border-color: #{$dark} transparent transparent #{$dark};
+    animation-delay: -.25s;
+    z-index: -1;
+  }
+  
+  &::after {
+    border-color: #{$light} transparent transparent #{$light};
+  }
+}
+
+.leg {
+  width: #{$head-height * .5};
+  height: #{$head-height * 1.5};
+  border-radius: #{$head-height * .5} #{$head-height * .25} 0 #{$head-height * .5};
+  box-shadow: inset #{$border} #{$border * -1} 0 #{$dark-alpha};
+  transform-origin: center #{$head-height * .25};
+  animation: leg 1s ease-in-out alternate infinite both;
+  
+  &--front {
+    left: 52%;
+    top: 67%;
+    background: $light;
+  }
+  
+  &--behind {
+    left: calc(52% + .01em);
+    top: calc(67% - .01em);
+    background: $dark;
+    animation-delay: -.25s;
+    z-index: -1;
+  }
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    background: inherit;
+  }
+  
+  &::before { // Heel
+    left: 100%;
+    width: 50%;
+    height: 50%;
+    border-radius: 0 #{$head-height * .25} #{$head-height * .125} 0;
+    box-shadow: inset #{$border * -1} #{$border * -1} 0 #{$dark-alpha};
+  }
+  
+  &::after { // Foot
+    right: 0;
+    width: 150%;
+    height: 17.5%;
+    border-top-left-radius: #{$head-height * .25};
+    box-shadow: inset #{$border} #{$border * -1} 0 #{$dark-alpha};
+  }
+}
+
+.wing {
+  width: .025em;
+  height: 27.5%;
+  border-radius: .025em 0 .025em .025em;
+  transform: skew(-10deg);
+  transform-origin: left bottom;
+  animation: wing 1s ease-in-out infinite alternate both;
+  
+  &--behind {
+    left: 35%;
+    bottom: 60%;
+    background-color: $shaded;
+  }
+  
+  &--front {
+    left: calc(35% - .01em);
+    bottom: calc(60% + .01em);
+    background-color: $secondary;
+  }
+  
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    border-bottom-right-radius: .025em;
+  }
+  
+  &::before {
+    top: .025em;
+    width: .225em;
+    height: 33%;
+  }
+  
+  &--behind {
+    animation-delay: -.1s;
+  }
+  
+  &--behind::before {
+    background-color: $light;
+    background-image: linear-gradient(to bottom, transparent calc(50% - #{$border/2}), #{$shaded} calc(50% - #{$border/2}), #{$shaded} calc(50% + #{$border/2}), transparent calc(50% + #{$border/2}));
+    box-shadow: 0 .025em 0 #{$shaded};
+  }
+    
+  &--front::before {
+    background-color: $lit;
+    box-shadow: 0 .025em 0 #{$secondary};
+    background-image: linear-gradient(to bottom, transparent calc(50% - #{$border/2}), #{$secondary} calc(50% - #{$border/2}), #{$secondary} calc(50% + #{$border/2}), transparent calc(50% + #{$border/2}));
+  }
+  
+  &::after {
+    top: 0;
+    width: .25em;
+    height: .025em;
+    background-color: inherit;
+  }
+}
+
+.cloud {
+  position: absolute;
+  left: -.3em;
+  font-size: $unit;
+  width: .3em;
+  height: .1em;
+  border-radius: .05em;
+  background-color: $cloud;
+  animation: cloud linear infinite;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: -33%;
+    width: .1em;
+    height: .1em;
+    border-radius: inherit;
+    background-color: inherit;
+  }
+  
+  &:nth-of-type(1) {
+    top: 15vh;
+    animation-duration: 1.5s;
+    
+    &::before { 
+      left: 16.7%;
+    }
+  }
+  
+  &:nth-of-type(2) {
+    top: 60vh;
+    animation-duration: 1.75s;
+    animation-delay: -.75s;
+    
+    &::before { 
+      left: 50%;
+    }
+  }
+  
+  &:nth-last-of-type(2) {
+    top: 45vh;
+    animation-duration: 1.25s;
+    animation-delay: -.25s;
+    
+    &::before { 
+      left: 33%;
+    }
+  }
+  
+  &:nth-last-of-type(1) {
+    top: 30vh;
+    animation-duration: 2s;
+    animation-delay: -1s;
+    
+    &::before { 
+      left: 42%;
+    }
+  }
+}
+
+@keyframes dragon {
+  from { transform: translateX(#{$unit / 20 * -1}); }
+  to { transform: translateX(#{$unit / 20}); }
+}
+
+@keyframes paw {
+  from { transform: rotate(-10deg); }
+  to { transform: rotate(-20deg); }
+}
+
+@keyframes leg {
+  from { transform: rotate(-60deg); }
+  to { transform: rotate(-85deg); }
+}
+
+@keyframes wing {
+  from { transform: skew(-10deg) rotate(-10deg); }
+  to { transform: skew(-10deg) rotate(10deg); }
+}
+
+@keyframes cloud {
+  to { transform: translateX(calc(100vw + .3em)); }
+}
