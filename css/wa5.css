@@ -1,0 +1,68 @@
+body {
+  background-image: url(/img/Santi.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+div{
+  font-size: 100px;
+}
+
+.overlay1 {
+  display: flex;
+  justify-content: space-between;
+
+  width: 600px;
+  height: 100px;
+  align-items: center;
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0) 20%
+    ),
+    linear-gradient(to top, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0) 20%),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0) 20%),
+    linear-gradient(to left, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0) 20%);
+
+  background-color: rgb(5, 25, 42);
+
+  font-size: 5em;
+  text-align: center;
+  line-height: 2em;
+
+  color: aliceblue;
+  border-style: solid;
+  border-color: rgba(7, 53, 79, 0.5);
+  border-width: 1mm;
+  border-radius: 1em;
+
+  box-shadow: 4px 4px 20px rgb(5, 25, 42);
+}
+
+p {
+  margin: 0;
+}
+p.time {
+  flex: 0.5;
+  width: 150px;
+  margin: 0;
+
+  border-right: 1mm solid rgba(7, 53, 79, 0.5);
+}
+
+p.score {
+  flex: 1;
+  margin: 0;
+}
+
+.overlay2{
+  position: absolute;
+  bottom: 30px;
+  width: 100%;
+  align-items: center;
+
+  text-align: center;
+}
