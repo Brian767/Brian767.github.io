@@ -2,16 +2,14 @@ body {
   background-image: url(/img/Santi.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-size: cover;
+  background-size:cover;
+  background-position: center 56%;
+
   font-size: 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-div{
-  font-size: 100px;
-}
-
-.overlay1 {
+.score-overlay {
   display: flex;
   justify-content: space-between;
 
@@ -58,11 +56,30 @@ p.score {
   margin: 0;
 }
 
-.overlay2{
+.gol-overlay {
+  width: 700px;
+  height: 260px;
+
   position: absolute;
   bottom: 30px;
-  width: 100%;
+  left: 50%;
+  transform: translateX(-50%);
   align-items: center;
-
   text-align: center;
+
+  background-image: url("/img/paint2.png");
+  background-size: cover;
+  
+}
+
+p.gol {
+  font-size: 16em;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: aliceblue;
+  font-style: italic;
+  padding-top: 45px;
+
+  text-shadow: 5px 10px 20px rgb(5, 25, 42);
+
+  
 }
