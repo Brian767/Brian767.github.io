@@ -1,0 +1,66 @@
+* {
+	border: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+:root {
+	--hue: 223;
+	--sat: 10%;
+	--light-gray: hsl(var(--hue),var(--sat),90%);
+	--dark-gray: hsl(var(--hue),var(--sat),10%);
+	--trans-dur: 0.3s;
+	font-size: clamp(1rem,0.9rem + 0.5vw,1.5rem);
+}
+body,
+button {
+	font: 1em/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
+}
+body {
+	background-color: var(--light-gray);
+	color: var(--dark-gray);
+	display: grid;
+	place-items: center;
+	height: 100vh;
+	transition:
+		background-color var(--trans-dur),
+		color var(--trans-dur);
+}
+button {
+	background-color: var(--dark-gray);
+	border-radius: 1.125em;
+	color: var(--light-gray);
+	cursor: pointer;
+	padding: 0.375em 0.75em;
+	width: 100%;
+	transition:
+		background-color var(--trans-dur),
+		color var(--trans-dur),
+		opacity var(--trans-dur);
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-tap-highlight-color: transparent;
+}
+button:hover {
+	opacity: 0.7;
+}
+main {
+	padding: 1.5em 0;
+	min-width: 19ch;
+}
+pre {
+	line-height: 1;
+	margin-bottom: 1.5em;
+}
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+	body {
+		background-color: var(--dark-gray);
+		color: var(--light-gray);
+	}
+	button {
+		background-color: var(--light-gray);
+		color: var(--dark-gray);
+	}
+}
