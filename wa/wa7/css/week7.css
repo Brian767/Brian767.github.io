@@ -1,0 +1,102 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #549a9c;
+  color: #1b222a;
+
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1{
+    transition: font-size 2s;
+}
+h1:hover{
+    font-size: 90px;
+}
+
+nav {
+  width: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 20px;
+  background-color: #492909;
+
+  border: 2px solid #1b222a;
+  transition: width 10s;
+}
+nav:hover{
+    width: 5000px;
+}
+
+nav a {
+  width: 10vw;
+  text-align: center;
+  text-decoration: none;
+  color: white;
+  transition: color 0.5s;
+}
+
+nav a:hover {
+  color: #1b222a;
+  background-color: white;
+}
+
+img {
+  margin-top: 25px;
+  height: 270.75px;
+  width: 338.5px;
+  border: 15px ridge #1b222a;
+  box-shadow: 2.5px 5px 5px #1b222a;
+  transition: rotate 2s;
+}
+
+img:hover{
+    rotate: 360deg;
+}
+
+
+#red-ball {
+  background-color: #bbf0ca;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: absolute;
+  left: 35.8vw;
+  top: 8.2vw;
+
+  transition: width 1s, height 1s, background-color 10s;
+
+  animation-name: ballMove;
+  animation-duration: 30s;
+  animation-iteration-count: infinite;
+}
+
+#red-ball:hover{
+    width: 500px;
+    height: 500px;
+    background-color: red;
+
+}
+
+@keyframes ballMove {
+  0% {
+    translate: 0 0;
+  }
+  25% {
+    translate: 27vw 0vw;
+  }
+
+  50% {
+    translate: 27vw 22.3vw;
+  }
+
+  75% {
+    translate: 0vw 22.3vw;
+  }
+
+  100% {
+    translate: 0vw 0vw;
+  }
+}
