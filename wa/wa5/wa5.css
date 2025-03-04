@@ -1,5 +1,5 @@
 body {
-  background-image: url(/img/Santi.jpg);
+  background-image: url(./img/Santi.jpg);
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size:cover;
@@ -67,7 +67,7 @@ p.score {
   align-items: center;
   text-align: center;
 
-  background-image: url("/img/paint2.png");
+  background-image: url("./img/paint2.png");
   background-size: cover;
   
 }
