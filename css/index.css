@@ -1,3 +1,80 @@
-h1{
-    
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  background: white;
+}
+
+#sidebar {
+  background-color: darkgray;
+  color: white;
+  width: 100%;
+  height: fit-content;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+}
+
+#sidebar ul {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#sidebar li {
+  margin-bottom: 10px;
+  margin-right: 5px;
+}
+
+.grid {
+  margin: 0 auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: 0.5fr 2.5fr;
+  gap: 20px;
+}
+.concert-box {
+  background-color: darkgrey;
+  border-radius: 8px;
+}
+
+h1 {
+  color: black;
+  display: flex;
+  justify-content: center;
+
+  text-shadow: 2px 2px 2px;
+  font-size: 6em;
+  font-style: italic;
+}
+
+h2 {
+  color: black;
+  font-size: 2em;
+}
+
+.concert-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.concert {
+  font-size: 2em;
+  /* border-bottom: 1px solid #dc0701; */
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  padding: 10px;
+  background-color: black;
+
+  color: white;
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  font-size: 14px;
 }
