@@ -12,12 +12,15 @@ h1 {
   font-style: italic;
   text-align: center;
   animation: glow 2s ease-in-out infinite alternate;
-
 }
 
 @keyframes glow {
-  from { text-shadow: 0 0 10px rgba(137, 243, 54, 0.5); }
-  to { text-shadow: 0 0 30px rgba(137, 243, 54, 0.9); }
+  from {
+    text-shadow: 0 0 10px rgba(137, 243, 54, 0.5);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(137, 243, 54, 0.9);
+  }
 }
 
 h2 {
@@ -57,7 +60,6 @@ hr {
   font-size: 18px;
   font-family: "Oxanium", sans-serif;
   font-weight: 600;
-
 }
 
 #sidebar a:hover {
@@ -89,6 +91,7 @@ hr {
   background-color: rgba(255, 255, 255, 0.02);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+  margin-bottom: 20px;
 }
 
 .concert {
@@ -102,6 +105,7 @@ hr {
   display: flex;
   justify-content: center;
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 #concert-1 {
@@ -134,7 +138,6 @@ hr {
   padding-right: 15px;
   padding-bottom: 15px;
   font-family: "Oxanium", sans-serif;
-
 }
 
 .bolded-words {
@@ -189,7 +192,58 @@ footer img {
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@media (max-width: 500px) {
+  body {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 25px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .grid {
+    display: block; 
+    padding: 10px; 
+  }
+
+  #sidebar {
+    position: static; 
+    text-align: center;
+  }
+
+  .concert {
+    font-size: 20px;
+  }
+
+  .concert-meta {
+    font-size: 16px;
+  }
+
+  .top {
+    padding: 10px 15px; 
+    font-size: 16px;
+    right: 10px; 
+    bottom: 10px; 
+  }
 }
