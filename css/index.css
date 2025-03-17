@@ -69,16 +69,18 @@ hr {
 }
 
 #sidebar ul {
-  padding-left: 0%;
-  justify-content: center;
-  text-align: center;
+  padding-left: 0;
+  margin: 0;
   position: sticky;
   top: 0;
 }
 
 .Concert-SideBar {
-  margin-left: 15px;
-  margin-right: 15px;
+  margin: 28px 20px;
+  list-style: none;
+  text-align: center;
+  justify-content: center;
+
 }
 
 .grid {
@@ -243,6 +245,12 @@ footer img {
   #sidebar ul {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    justify-items: center;
+  }
+
+  .Concert-SideBar {
+    margin: 14px 10px;
   }
 
   .concert {
