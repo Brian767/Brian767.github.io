@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Scrollbar styling: scrollbar-color</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<main>
+  <h1>Styling Scrollbars</h1>
+  <div class="warning">Your browser does not support <code>scrollbar-gutter</code> or <code>scrollbar-width</code>.</div>
+  <div class="scroller">
+    <div class="content">
+      <p>CSS, short for Cascading Style Sheets, is a programming language that is used to describe the presentation or visual layout of a document written in HTML. It acts as a styling tool and enables web developers to control the appearance of their websites or web pages by specifying how different elements should be displayed on the screen. CSS allows designers to define various aspects such as font styles, colors, spacing between elements, background images, and much more.</p>
+      <p>The term "cascading" in CSS refers to its ability to apply multiple stylesheets simultaneously and prioritize them based on their importance or specificity. This feature allows developers to create consistent designs across multiple web pages by defining common styles in an external stylesheet which can then be linked to all relevant HTML documents. Additionally, CSS makes it easy to update the design of an entire website by simply modifying one central stylesheet rather than having to manually edit each individual webpage.</p>
+      <p>CSS can be applied directly within an HTML document using inline stylesheets or internally through embedded stylesheets within the head section of a page. However, it is considered best practice and more efficient from both maintenance and performance perspectives to use external style sheets stored separately in .css files which are then referenced within HTML documents.</p>
+      <p>One important concept in CSS is selectors. Selectors allow you to target specific elements within your HTML markup so that you can apply different styles only where needed. Selectors can target tags (e.g., p, div), classes (e.g., .header), IDs (e.g., #main), attributes (e.g., [type="submit"]), pseudo-classes (e.g., :hover) and many other properties of DOM elements.</p>
+      <p>Overall, CSS plays a crucial role in modern web development as it provides great flexibility and control over how content looks on websites. By separating style from structure with this powerful language, developers are able to create visually appealing websites while maintaining clean code that adheres to best practices for web accessibility and user experience.</p>
+    </div>
+  </div>
+  <div class="controls">
+    <span>Scrollbar-gutter: </span>
+    <label><input type="radio" name="gutter" value="auto" checked> auto</label>
+    <label><input type="radio" name="gutter" value="stable"> stable</label>
+    <label><input type="radio" name="gutter" value="stable both-edges"> stable both-edges</label>
+  </div>
+  <div class="controls">
+    <span>Scrollbar-width: </span>
+    <label><input type="radio" name="width" value="auto" checked> auto</label>
+    <label><input type="radio" name="width" value="thin"> thin</label>
+    <label><input type="radio" name="width" value="none"> none</label>
+  </div>
+  <div class="controls" data-when="scrollbar-color">
+    <label for="scrollbar-color-thumb">Thumb Color</label>
+    <input type="color" id="scrollbar-color-thumb" value="#FF69B4">
+    <label for="scrollbar-color-track">Track Color</label>
+    <input type="color" id="scrollbar-color-track" value="#0000FF">
+  </div>
+</main>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
