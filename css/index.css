@@ -41,6 +41,7 @@ hr {
   margin-bottom: 15px;
 }
 
+/*Sidebar  */
 #sidebar {
   background-color: rgba(255, 255, 255, 0.02);
   color: white;
@@ -87,6 +88,7 @@ hr {
   padding: 20px;
 }
 
+/*Concert Information */
 .concert-box {
   background-color: rgba(255, 255, 255, 0.02);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -132,6 +134,7 @@ hr {
   color: white;
 }
 
+/* Red notes at the bottom of concert content */
 .notes {
   color: #ff3131;
   padding-left: 15px;
@@ -140,10 +143,12 @@ hr {
   font-family: "Oxanium", sans-serif;
 }
 
+/* Bolded words */
 .bolded-words {
   color: #89f336;
 }
 
+/* Back to top button */
 .top {
   text-decoration: none;
   padding: 20px;
@@ -171,6 +176,7 @@ hr {
   transform: scale(1.05);
 }
 
+/* Footer */
 footer {
   color: white;
   display: flex;
@@ -181,6 +187,7 @@ footer {
   text-align: center;
 }
 
+/* Alien Image */
 footer img {
   width: 200px;
   height: 200px;
@@ -203,6 +210,7 @@ footer img {
   }
 }
 
+/* For screens smaller than 500px */
 @media (max-width: 500px) {
   body {
     font-size: 14px;
@@ -223,13 +231,18 @@ footer img {
   }
 
   .grid {
-    display: block; 
-    padding: 10px; 
+    display: block;
+    padding: 10px;
   }
 
   #sidebar {
-    position: static; 
+    position: static;
     text-align: center;
+  }
+
+  #sidebar ul {
+    display: flex;
+    flex-wrap: wrap;
   }
 
   .concert {
@@ -241,9 +254,9 @@ footer img {
   }
 
   .top {
-    padding: 10px 15px; 
+    padding: 10px 15px;
     font-size: 16px;
-    right: 10px; 
-    bottom: 10px; 
+    right: 10px;
+    bottom: 10px;
   }
 }
