@@ -1,0 +1,86 @@
+body {
+  font-family: "Oxanium", sans-serif;
+  font-size: 10px;
+  color: #89f336;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size:cover;
+  
+}
+
+label {
+  font-weight: bold;
+  font-size: 6em;
+  animation: glow 2s ease-in-out infinite alternate;
+  padding: 15px;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(137, 243, 54, 0.5);
+  }
+  to {
+    text-shadow: 0 0 30px rgba(137, 243, 54, 0.9);
+  }
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+input[type="text"] {
+  padding: 10px;
+  width: 150px;
+  background-color: #1b2735;
+  color: #89f336;
+  border: none;
+  border-radius: 10px;
+}
+
+p {
+  /* text-align: center; */
+  justify-content: center;
+  align-items: center;
+
+  font-family: "B612", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 30px;
+  line-height: 1.5;
+  visibility: hidden;
+
+  padding: 0 400px;
+}
+
+.story{
+  color: white;
+}
+
+button{
+  text-decoration: none;
+  padding: 10px;
+  font-size: 25px;
+  color: #89f336;
+  background: #1b2735;
+  border: none;
+  border-radius: 10px;
+  transition: all ease 0.5s;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+button:hover {
+  background-color: #89f336;
+  color: #1b2735;
+  transform: scale(1.05);
+}
