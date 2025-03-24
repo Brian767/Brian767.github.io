@@ -16,12 +16,12 @@ body {
 }
 
 .space2 {
-  --speed: 4s;
+  --speed:10s;
   appearance: none;
   font-size: 1em;
   box-sizing: content-box;
-  width: 2.5em;
-  height: 1em;
+  width: 5em;
+  height: 3em;
   border: 1px solid #fff3;
   background:
     /* stars */
@@ -71,7 +71,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 2.5em;
+    width: 5em;
     height: 120%;
      transform: translate(-0.5em, 65%);
     border-radius: 50%;
