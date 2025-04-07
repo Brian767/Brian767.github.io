@@ -6,11 +6,11 @@ const overlay = document.querySelector(".overlay");
 
 /* Declaring the array of image filenames */
 
-const filenames = ["pic1.JPG", "pic2.JPG", "pic3.jpg", "pic4.JPG", "pic5.JPG"];
+const filenames = ["pic1.jpg", "pic2.JPG", "pic3.JPG", "pic4.JPG", "pic5.JPG"];
 
 /* Declaring the alternative text for each image file */
 
-const altnames = ["Eye Picture", "Waves", "Flowers", "Drawing", "Butterfly"];
+const altnames = ["Sunset of boulder", "Sunrise at red rocks", "White tulip field", "Pond", "CU stadium"];
 
 /* Looping through images */
 
