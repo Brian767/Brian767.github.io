@@ -1,0 +1,33 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  padding: 20px;
+  background: rgb(72, 112, 154);
+  color: rgb(9, 13, 38);
+}
+p {
+    font-size: 16px;
+    line-height: .6;
+}
+canvas {
+  border: 3px solid rgb(52, 59, 66);
+  background: rgb(215, 215, 215);
+  display: block;
+  margin: 0 auto 10px;
+  cursor: move;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+}
+.controls button {
+  background: rgb(215, 215, 215);
+  margin: 0 5px;
+  padding: 8px 16px;
+  font-size: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  border: none;
+}
+
+#PhoneNumber {
+  font-size: 50px;
+  font-weight: bold;
+  margin-top: 0;
+}
