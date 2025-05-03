@@ -17,10 +17,10 @@ const stopThresh = 4;
 const radius = 20;
 
 // floor
-const floor = canvas.height - 10 - radius;
+const floor = canvas.height - 8 - radius;
 
 //Default Ball position/speed
-let dropHeight = canvas.height / 3;
+let dropHeight = canvas.height / 2;
 let x = canvas.width / 2;
 let y = dropHeight;
 let vy = 0;
@@ -29,6 +29,7 @@ let vy = 0;
 let bouncing = false;
 let bounceCount = 0;
 let numEntered = [];
+let currentDesiredBounces = 0;
 
 // draw platform and ball
 function draw() {
@@ -57,6 +58,11 @@ function drawInitial() {
 canvas.addEventListener("click", (e) => {
   if (bouncing) return;
   dropHeight = e.offsetY;
+
+  const sectionHeight = canvas.height / 10;
+  const section = Math.floor(dropHeight / sectionHeight);
+  currentDesiredBounces = Math.min(9, 9 - section);
+
   drawInitial();
 });
 
@@ -97,7 +103,7 @@ function update() {
     bounceCount++;
     bounceElement.textContent = bounceCount;
 
-    if (Math.abs(vy) < stopThresh) {
+    if (bounceCount === currentDesiredBounces || currentDesiredBounces === 0) {
       bouncing = false;
       setTimeout(() => {
         BounceEnd();
@@ -110,14 +116,17 @@ function update() {
   requestAnimationFrame(update);
 }
 
-// start drop 
+// start drop
 DropBallBtn.addEventListener("click", () => {
   y = dropHeight;
   vy = 0;
   bounceCount = 0;
   bounceElement.textContent = "0";
 
-  // digit 0 if ball is on or under the floor.
+  const sectionHeight = canvas.height / 10;
+  const section = Math.floor(dropHeight / sectionHeight);
+  currentDesiredBounces = Math.min(9, 9 - section);
+
   if (dropHeight >= floor) {
     BounceEnd();
     return;
