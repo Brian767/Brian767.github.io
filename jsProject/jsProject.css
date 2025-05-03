@@ -47,6 +47,7 @@ canvas:hover {
   border: none;
   border-radius: 6px;
   transition: all 0.3s;
+  font-weight: bold;
 }
 .controls button:hover {
   background-color: rgb(163, 200, 240);
