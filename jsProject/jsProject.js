@@ -3,7 +3,8 @@ const canvas = document.getElementById("ballCanvas");
 const ctx = canvas.getContext("2d");
 
 const DropBallBtn = document.getElementById("DropBall");
-const clearAllBtn = document.getElementById("clearAll");
+const submitBtn = document.getElementById("submitNumber");
+const backSpaceBtn = document.getElementById("backspace");
 
 const bounceElement = document.getElementById("bounceCount");
 const digitsElement = document.getElementById("digits");
@@ -11,7 +12,6 @@ const digitsElement = document.getElementById("digits");
 //Ball Bounce Physics
 const gravity = 0.7;
 const damping = 0.835;
-const stopThresh = 4;
 
 //Ball Radius
 const radius = 20;
@@ -69,24 +69,19 @@ canvas.addEventListener("click", (e) => {
 // called when bounce finishes
 function BounceEnd() {
   //Push the final bounce count as a digit to the phone number
-  numEntered.push(bounceCount);
-  digitsElement.textContent = numEntered.join("");
+
+  if (numEntered.length < 10) {
+    numEntered.push(bounceCount);
+    digitsElement.textContent = numEntered.join("");
+  }
 
   //reset the count and buttons for the next ball drop
   bounceCount = 0;
   bounceElement.textContent = "0";
   bouncing = false;
   DropBallBtn.disabled = false;
-  clearAllBtn.disabled = false;
+  backSpaceBtn.disabled = false;
   drawInitial();
-
-  // if 10 digits were entered, show the phone number and then reset
-  if (numEntered.length >= 10) {
-    alert(`Phone number entered: ${numEntered.join("")}`);
-    numEntered = [];
-    digitsElement.textContent = "";
-    drawInitial();
-  }
 }
 
 // animation loop
@@ -118,6 +113,11 @@ function update() {
 
 // start drop
 DropBallBtn.addEventListener("click", () => {
+  if (numEntered.length >= 10) {
+    alert("Maximum 10 digits reached!");
+    return;
+  }
+
   y = dropHeight;
   vy = 0;
   bounceCount = 0;
@@ -135,21 +135,40 @@ DropBallBtn.addEventListener("click", () => {
   //start bounce
   bouncing = true;
   DropBallBtn.disabled = true;
-  clearAllBtn.disabled = true;
+  backSpaceBtn.disabled = true;
   draw();
   requestAnimationFrame(update);
 });
 
-// clear everything
-clearAllBtn.addEventListener("click", () => {
-  numEntered = [];
-  digitsElement.textContent = "";
-  bounceCount = 0;
-  bounceElement.textContent = "0";
-  bouncing = false;
-  DropBallBtn.disabled = false;
-  clearAllBtn.disabled = false;
-  drawInitial();
+// Submit phobe number
+submitBtn.addEventListener("click", () => {
+  if (numEntered.length === 10) {
+    alert(`Submitting phone number: ${numEntered.join("")}`);
+    numEntered = [];
+    digitsElement.textContent = "";
+    bounceCount = 0;
+    bounceElement.textContent = "0";
+    bouncing = false;
+    DropBallBtn.disabled = false;
+    backSpaceBtn.disabled = false;
+    drawInitial();
+  } else {
+    alert(`Please enter exactly 10 digits (currently ${numEntered.length})`);
+  }
+});
+
+// backspace
+backSpaceBtn.addEventListener("click", () => {
+  if (numEntered.length > 0) {
+    numEntered.pop();
+    digitsElement.textContent = numEntered.join("");
+    bounceCount = 0;
+    bounceElement.textContent = "0";
+    bouncing = false;
+    DropBallBtn.disabled = false;
+    backSpaceBtn.disabled = false;
+    drawInitial();
+  }
 });
 
 drawInitial();

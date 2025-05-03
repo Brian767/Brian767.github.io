@@ -1,13 +1,26 @@
 body {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
-  padding: 20px;
   background: rgb(72, 112, 154);
-  color: rgb(9, 13, 38);
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
+
+h1 {
+  font-size: 50px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 p {
   font-size: 16px;
   line-height: 0.6;
+}
+
+#directions {
+  margin-bottom: 15px;
 }
 canvas {
   border: 3px solid rgb(52, 59, 66);
@@ -16,7 +29,15 @@ canvas {
   margin: 0 auto 10px;
   cursor: move;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+  border-radius: 6px;
+  transition: all 0.3s;
 }
+
+canvas:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
 .controls button {
   background: rgb(215, 215, 215);
   margin: 0 5px;
@@ -24,10 +45,49 @@ canvas {
   font-size: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
   border: none;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+.controls button:hover {
+  background-color: rgb(163, 200, 240);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 #PhoneNumber {
   font-size: 50px;
   font-weight: bold;
   margin-top: 0;
+  letter-spacing: 0.05em;
+}
+
+#backspace {
+  background: #ff6b6b;
+  color: white;
+}
+
+#backspace:hover {
+  background: #ff5252;
+}
+
+#bounces {
+  font-size: 20px;
+  margin: 1rem 0;
+}
+
+#bounceCount {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+#digits {
+  display: inline-block;
+  padding: 0.7rem 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  min-width: 50px;
+  font-weight: bold;
 }
