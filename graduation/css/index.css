@@ -1,0 +1,171 @@
+/* index.css */
+:root {
+    --cu-gold: #CFB87C;
+    --cu-black: #1A1A1A;
+    --cu-gray: #707070;
+    --cu-white: #FFFFFF;
+    --bg-gradient: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 2rem;
+  }
+  
+  .invitation-card {
+    background: var(--cu-white);
+    border-radius: 20px;
+    max-width: 540px;
+    padding: 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 2px solid var(--cu-gold);
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  .invitation-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--cu-gold) 0%, transparent 70%);
+    opacity: 0.1;
+    transform: rotate(45deg);
+  }
+  
+  .invitation-card::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, var(--cu-gold) 0%, transparent 70%);
+    opacity: 0.1;
+    transform: rotate(-45deg);
+  }
+  
+  .header {
+    margin-bottom: 2.5rem;
+    position: relative;
+    padding-bottom: 1.5rem;
+  }
+  
+  .header::after {
+    content: '';
+    width: 120px;
+    height: 3px;
+    background: var(--cu-gold);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--cu-black);
+    font-size: 2.6rem;
+    margin: 0;
+    line-height: 1.2;
+    animation: fadeIn 1s ease-out;
+  }
+  
+  .degree-info {
+    margin-top: 1.5rem;
+    padding: 1.5rem;
+    background: rgba(207, 184, 124, 0.1);
+    border-radius: 12px;
+  }
+  
+  .degree {
+    font-weight: 500;
+    color: var(--cu-black);
+    margin: 0.5rem 0;
+  }
+  
+  .school {
+    font-weight: 300;
+    color: var(--cu-gray);
+    margin-top: 0.5rem;
+  }
+  
+  .ceremony-details,
+  .parking-details,
+  .bring-details {
+    margin: 2rem 0;
+    text-align: left;
+  }
+  
+  .detail-item {
+    margin: 1.5rem 0;
+    padding-left: 2.5rem;
+    position: relative;
+    animation: slideIn 0.8s ease-out;
+  }
+  
+  .detail-item::before {
+    content: '🎓';
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 1.5rem;
+    line-height: 1;
+    color: var(--cu-gold);
+  }
+  
+  .parking-details .detail-item::before {
+    content: '🚗';
+  }
+  
+  .bring-details .detail-item::before {
+    content: '🎒';
+  }
+  
+  .highlight {
+    color: var(--cu-gold);
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+  
+  .parking-details h2,
+  .bring-details h2 {
+    color: var(--cu-black);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  
+  .parking-details a,
+  .bring-details a {
+    color: var(--cu-gold);
+    text-decoration: underline;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  
+  @media (max-width: 600px) {
+    .invitation-card {
+      padding: 2rem;
+    }
+    h1 {
+      font-size: 2rem;
+    }
+  }
